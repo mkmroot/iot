@@ -14,5 +14,5 @@ for nodemcu fetch the server using get api  and run accoding to the json
   - add the wifi credentials
   - add the api
   - add arduino librery
-      > ESP8266WiFi.h
-      > ArduinoJson
+       ESP8266WiFi
+       ArduinoJson
