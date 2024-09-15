@@ -33,6 +33,7 @@ def post_data():
         "received_data": data
     }
     return jsonify(response), 201
+
 @app.route('/api/saved-data', methods=['GET'])
 def get_saved_data():
     try:
@@ -46,5 +47,6 @@ def get_saved_data():
 # Run the Flask app
 if __name__ == '__main__':
     #app.run(debug=True)
-    app.run(host='192.168.43.105', port=5000, debug=True)
+    #app.run(host='192.168.43.105', port=5000, debug=True)
+    app.run(host='192.168.0.15', port=5000, debug=True)
 

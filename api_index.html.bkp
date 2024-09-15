@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask API Patch Test</title>
+    <script>
+        async function sendPatchRequest(endpoint, data) {
+            try {
+                const response = await fetch(`http://192.168.0.15:5000/api/${endpoint}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                document.getElementById('result').innerText = JSON.stringify(result, null, 2);
+            } catch (error) {
+                document.getElementById('result').innerText = `Error: ${error}`;
+            }
+        }
+
+        function patchPoint1On() {
+            const data = { Point1: "ON" };
+            sendPatchRequest('data', data);
+        }
+
+        function patchPoint1Off() {
+            const data = { Point1: "OFF" };
+            sendPatchRequest('data', data);
+        }
+        function patchAge() {
+            const data = { age: 35 };
+            sendPatchRequest('data', data);
+        }
+
+        function patchJob() {
+            const data = { Point2: "ON" };
+            sendPatchRequest('data', data);
+        }
+    </script>
+</head>
+<body>
+    <h1>Flask API Patch Test</h1>
+    <button onclick="patchPoint1On()">LED On</button>
+    <button onclick="patchPoint1Off()">LED Off</button>
+    <button onclick="patchAge()">Update Age to 35</button>
+    <button onclick="patchJob()">Update Job to Manager</button>
+    <pre id="result"></pre>
+</body>
+</html>
+
