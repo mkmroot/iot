@@ -59,7 +59,8 @@ run flask file
 1. Node mcu file --
 	api_json_flask_fullpin 
 
-2. use app2.py
+2. pip install flask-cors
+   app2.py
 
 3. apache html-- sunil_index.html
 curl command:
